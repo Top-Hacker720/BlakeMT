@@ -1,4 +1,4 @@
-@echo off 
+@echo off
 color 0B
 cls
 title BlakeOS [BOOTING]
@@ -19,18 +19,36 @@ goto :password
 :main
 cls
 color 0B
-echo 1 [CALCULATOR]    2 [BlakeOS GITHUB]   3 [PC CLEANUP UTILITY]
+echo 1 [CALCULATOR]    2 [BlakeOS GITHUB]   3 [PC CLEANUP UTILITY]  4 [OPEN ADMIN PORTAL]   5 [EXIT]
 set option=
 set /p option=BlakeOS~$
-if not '%option%'=='' set option=%option:~0,1%
-if '%option%'=='0' goto web_crasher
+if not '%option%'=='' goto main_invalid
+if '%option%'=='#' goto secret_menu
 if '%option%'=='1' goto calculator
-if '%option%'=='2' start C:\Program Files\Internet Explorer\iexplore.exe "https://github.com/Top-Hacker720/BlakeOS"
+if '%option%'=='2' start C:\Program Files\Internet Explorer\iexplore.exe "https://github.com/Top-Hacker720/BlakeMT"
 if '%option%'=='3' goto pc_cleaner
-if '%option%'=='4' exit 
+if '%option%'=='4' goto admin_portal
+if '%option%'=='5' exit
+:main_invalid
 echo "%option%" is not valid, try again
+pause
+goto main
+
+:admin_portal
+pause
+set __COMPAT_LAYER=RunAsInvoker
+start C:\Windows\System32\cmd.exe
 
 
+:secret_menu
+set option=
+set /p option=BlakeOS~$
+if not '%option%'=='' goto main_invalid
+if '%option%'=='1' goto web_crasher
+:secret_menu_invalid
+echo "%option%" is not valid, try again
+pause
+goto main
 
 
 :calculator
@@ -41,7 +59,7 @@ color 3f
 Cls
 ECHO ----------------------------------------------------
 ECHO[
-ECHO                  BlakeOS CALCULATOR                 
+ECHO                  BlakeOS CALCULATOR
 ECHO[
 ECHO ----------------------------------------------------
 ECHO[
@@ -82,7 +100,7 @@ ECHO[
 ECHO ---------------------------------------------------
 ECHO %A%+%B%=%C%
 PAUSE
-GOTO:TOP
+GOTO TOP
 :SUB
 CLS
 ECHO ---------------------------------------------------
@@ -99,7 +117,7 @@ ECHO[
 ECHO ---------------------------------------------------
 ECHO %A%-%B%=%C%
 PAUSE
-GOTO:TOP
+GOTO TOP
 :DIV
 CLS
 ECHO ----------------------------------------------------
@@ -116,7 +134,7 @@ ECHO[
 ECHO -----------------------------------------------------
 ECHO %A%/%B%=%C%
 PAUSE
-GOTO:TOP
+GOTO TOP
 :MUL
 CLS
 ECHO ---------------------------------------------------
@@ -133,7 +151,7 @@ ECHO[
 ECHO ----------------------------------------------------
 ECHO %A%*%B%=%C%
 PAUSE
-GOTO:TOP
+GOTO TOP
 :EXI
 GOTO main
 :HEL
@@ -145,7 +163,7 @@ ECHO[
 ECHO --------------------------------------------------
 ECHO Press (+) For Sum, (-) For Sub, (/) for Division, (*) for Multiply.
 PAUSE
-GOTO:TOP
+GOTO TOP
 
 
 

